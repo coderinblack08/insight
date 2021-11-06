@@ -1,0 +1,18 @@
+@import url("https://rsms.me/inter/inter.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-size: 14px;
+    background-color: #090e1a;
+    line-height: 1.6em;
+    @apply antialiased font-medium text-gray-100;
+  }
+
+  .font-display {
+    font-feature-settings: "liga" off, "calt" off, "kern" off;
+  }
+}
