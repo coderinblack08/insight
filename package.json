@@ -5,7 +5,10 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": []
+    "nohoist": [
+      "**/functions",
+      "**/functions/**"
+    ]
   },
   "scripts": {
     "diff": "lerna diff",

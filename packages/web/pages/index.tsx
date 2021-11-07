@@ -1,15 +1,17 @@
-import type { NextPage } from "next";
 import { Button } from "@insight/ui";
-import React from "react";
+import type { NextPage } from "next";
 import Image from "next/image";
-import logo from "../public/logo.png";
+import React from "react";
+import { Category, People, Work } from "react-iconly";
+import { FeatureCard } from "../modules/landing-page/FeatureCard";
+import { Navbar } from "../modules/landing-page/Navbar";
 import phone from "../public/phone-demo.png";
 
 const Home: NextPage = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto px-5">
       <svg
-        className="absolute left-0 top-24"
+        className="block 2xl:hidden absolute left-0 top-24"
         width={615 * 0.8}
         height={1231 * 0.8}
         viewBox="0 0 615 1231"
@@ -34,28 +36,10 @@ const Home: NextPage = () => {
           </radialGradient>
         </defs>
       </svg>
-      <nav className="relative z-10 flex items-center justify-between py-6">
-        <Image src={logo} alt="Insight Logo" />
-        <ul className="flex items-center space-x-8">
-          <li>
-            <a className="text-gray-300">Pricing</a>
-          </li>
-          <li>
-            <a className="text-gray-300">Contact</a>
-          </li>
-          <li>
-            <a className="text-gray-300">Documentation</a>
-          </li>
-          <li>
-            <Button color="outlined" size="sm" className="rounded-xl">
-              Login
-            </Button>
-          </li>
-        </ul>
-      </nav>
-      <div className="relative z-10 flex items-center justify-between py-8">
+      <Navbar />
+      <div className="relative z-10 flex items-center justify-between mt-28 lg:mt-12">
         <header className="max-w-[44rem]">
-          <h1 className="text-5xl font-bold leading-snug text-purple-200 font-display">
+          <h1 className="text-5xl font-bold leading-snug tracking-tight text-purple-200 font-display">
             <span className="text-purple-500">
               Build Gamified & Personalized
             </span>{" "}
@@ -76,7 +60,31 @@ const Home: NextPage = () => {
             </Button>
           </div>
         </header>
-        <Image src={phone} alt="Phone demo of Insight" />
+        <div className="hidden lg:block">
+          <Image
+            quality={99}
+            priority
+            src={phone}
+            alt="Phone demo of Insight"
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10 my-40">
+        <FeatureCard
+          title="Social Media"
+          icon={<People set="bulk" />}
+          description="Buildout forms to ask questions and connect with your social media. Encourage participation by setting up rewards."
+        />
+        <FeatureCard
+          title="Startups and Marketing"
+          icon={<Work set="bulk" />}
+          description="Launch waitlists, customer care forms, and more using Incline. Customize our theme to match your branding and fit in with your design."
+        />
+        <FeatureCard
+          title="Schools"
+          icon={<Category set="bulk" />}
+          description="Create test and competitions with Incline. Grade automatically and publish to other sites with Google Classroom and Schoology integration."
+        />
       </div>
     </div>
   );
